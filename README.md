@@ -1,2 +1,1 @@
-# airport plane manager
- A simple program python to manage flights.
+![easter egg](https://imgur.com/a/M4aRZoF)
