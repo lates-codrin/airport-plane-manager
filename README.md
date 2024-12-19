@@ -1,1 +1,1 @@
-![easter egg](https://imgur.com/a/M4aRZoF)
+![easter egg](https://i.imgur.com/534UkoJ.png)
