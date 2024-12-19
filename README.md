@@ -3,4 +3,7 @@
 </p>
 
 <h1 align="center">APM - Airport Plane Manager</h1>
-<h2 align="center">v 1.0.1</h2>
+
+<p align="center" style="margin-bottom: 0px !important;">
+  <h2 align="center" style="margin-top: 0px;">v 1.0.1</h2>
+</p>
