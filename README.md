@@ -7,10 +7,6 @@
 <p align="center" >v 1.0.1</p>
 
 
-## Authors
-
-- [@lates-codrin](https://github.com/lates-codrin)
-
 # [✈️] Airport Plane Manager (Problem 1)
 ## How to run
 
@@ -55,7 +51,9 @@ empty for now
 bonk
 
 
+## Authors
 
+- [@lates-codrin](https://github.com/lates-codrin)
 
 ## Acknowledgements
 
