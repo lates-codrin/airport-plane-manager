@@ -1,5 +1,5 @@
 <p align="center">
-    <img width="200" src="https://i.imgur.com/534UkoJ.png" alt="APM Logo">
+    <img width="800" src="https://i.imgur.com/534UkoJ.png" alt="APM Logo">
 </p>
 
 <h1 align="center">APM - Airport Plane Manager</h1>
