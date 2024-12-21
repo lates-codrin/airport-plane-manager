@@ -16,7 +16,6 @@ from domain.plane.planeValidator import PlaneValidator
 from ui.console2 import PlaneUI as ConsolePlaneLauncher
 
 from application.planeController import PlaneController
-
 from ui.other import PlaneUI as UserInterfacePlaneLauncher
 def start():
     #crearte the repo

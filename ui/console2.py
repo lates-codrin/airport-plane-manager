@@ -1,5 +1,5 @@
 import subprocess
-import ast  # For safely parsing the passengers_list
+import ast
 class PlaneUI(object):
     def __init__(self, controller):
         self.__controller = controller

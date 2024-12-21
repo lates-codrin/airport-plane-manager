@@ -9,7 +9,6 @@ from ui.components.UpdateFrame import UpdateFrame
 
 #from utils.Logger import Logger
 
-
 # vineri 10 ian next psy course
 # 17 ian examen
 class PlaneUI(customtkinter.CTk):
@@ -19,7 +18,7 @@ class PlaneUI(customtkinter.CTk):
 
         self.title("APM - Airport Plane Manager v1.0.1")
         self.geometry("1200x550")
-        self.resizable(False, False)
+        #self.resizable(False, False)
         # set grid layout 1x2
         self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure(1, weight=1)

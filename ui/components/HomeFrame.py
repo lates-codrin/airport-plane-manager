@@ -124,15 +124,23 @@ class HomeFrame(customtkinter.CTkFrame):
             self.plane_explorer.after(20, self.plane_explorer.focus)
         except Exception as err:
             err = ErrorFrame(master=self, err=err)
+            err.after(10, err.lift)
+            err.after(20, err.focus)
             print("Error")
 
         
     
     def view_all_planes(self):
         planes = self.__controller.getPlanes(("all", []))
-        self.plane_explorer = PlaneExplorer(self,planes)
-        self.plane_explorer.after(10, self.plane_explorer.lift)
-        self.plane_explorer.after(20, self.plane_explorer.focus)
+        if len(planes) == 0 :
+            err = ErrorFrame(master=self, err="No planes inside repository")
+            err.after(10, err.lift)
+            err.after(20, err.focus)
+            print("Error")
+        else:
+            self.plane_explorer = PlaneExplorer(self,planes)
+            self.plane_explorer.after(10, self.plane_explorer.lift)
+            self.plane_explorer.after(20, self.plane_explorer.focus)
         #hoice = self.__controller.getPlanes(("all", ""))
         #print(choice)
 

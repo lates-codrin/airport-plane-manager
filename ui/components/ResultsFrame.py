@@ -3,7 +3,6 @@ import os
 from PIL import Image
 from ui.components.Tooltip import CustomTooltipLabel
 
-
 class SeatMap(ctk.CTkScrollableFrame):
     def __init__(self,mas,planes=None, rows=6, cols=10,*args, **kwargs):
         super().__init__(mas,*args, **kwargs)
@@ -20,20 +19,18 @@ class SeatMap(ctk.CTkScrollableFrame):
         
         #print(self.__planes)
         self.pack(pady=20, padx=20)
-        # Load the seat map background image
         image_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "test_images")
         large_test_image = ctk.CTkImage(Image.open(os.path.join(image_path, "seatmap.png")), size=(900, 900))
         self.configure(width=1920, height=1080)
 
-        # Add the seat map image as a label
         label = ctk.CTkLabel(master=self, text="", image=large_test_image)
         label.grid(row=0, column=0)
 
-        # Create a frame to contain the buttons
-        self.button_frame = ctk.CTkFrame(self, fg_color="#f5f7fd", corner_radius=0)  # Transparent frame
-        self.button_frame.place(relx=0.191, rely=0.20, relwidth=0.099, relheight=0.8)  # Adjust position and size
 
-        # Create the seat grid inside the frame
+        self.button_frame = ctk.CTkFrame(self, fg_color="#f5f7fd", corner_radius=0, width=150)  
+        self.button_frame.grid_propagate(0)
+        self.button_frame.grid(row=0,ipadx=20, ipady=5)
+        #self.button_frame.place(relwidth=0.099, relheight=0.8)  
         current_plane = self.get_curr_plane()
         passenger_list = current_plane.get_passengers_list()
         self.create_seat_map(passenger_list)
@@ -255,12 +252,15 @@ class SeatMap(ctk.CTkScrollableFrame):
 class PlaneExplorer(ctk.CTkToplevel):
     def __init__(self, master,planes = None, *args, **kwargs):
         super().__init__(master, *args, **kwargs)
+        
         self.attributes('-fullscreen', True)
         self.planes=planes
         self.seat_map = SeatMap(self,planes=self.planes, rows=10, cols=2)
         self.title("Seat Map _PRODUCTION")
         self.lift()
         self.focus()
+        
+
 
 # Example usage
 '''if __name__ == "__main__":
