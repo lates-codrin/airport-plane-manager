@@ -38,9 +38,18 @@ class passengerRepository:
         return self._passengers[index]
     
     def get_passenger_by_name(self, name: str) -> MyPassenger:
-        return [passenger for passenger in self._passengers if passenger.get_last_name().find(name) != -1 and passenger.get_first_name().find(name) != -1 ]
+        """Get passenger by their name.
+
+        Args:
+            name (str): Name to search for.
+        Returns:
+            MyPassenger: The passenger whos first or last name matches the argument.
+        """
+        return [passenger for passenger in self._passengers if passenger.get_last_name().find(name) != -1 or passenger.get_first_name().find(name) != -1 ]
     
     def sort_by_last_name(self):
+        """Sorts the passengers by their last name.
+        """
         def getLast(p):
             return p.get_last_name()
         self._passengers.sort(key=getLast)

@@ -1,14 +1,13 @@
 from domain.plane.planeException import PlaneException
 from domain.plane.planeValidator import PlaneValidator
 from infrastructure.passengers.passengerRepository import passengerRepository
-from domain.passenger.passenger import PassengerValidator
-from domain.passenger.passengerException import PassengerException
+from domain.passenger.passenger import MyPassenger
 class MyPlane:
     def __init__(self, number : int, airline : str, seats : int, destination : str, passengers_list: passengerRepository):
         if not isinstance(number, int) or not isinstance(airline, str) or not isinstance(seats, int) or not isinstance(destination, str) or not isinstance(passengers_list, passengerRepository):
-            raise PlaneException("One of the arguments provided not of correct type.")
+            raise PlaneException("[D-P] One of the arguments provided not of correct type.")
         if len(passengers_list) > seats:
-            raise PlaneException("Too many passengers are aboard the plane.")
+            raise PlaneException("[D-P] Too many passengers are aboard the plane.")
         
         self.__number = number
         self.__airline = airline
@@ -64,3 +63,7 @@ class MyPlane:
     
     def __repr__(self):
             return str("\n------------------------------- [[  "+str(self.__number)+"  ]] -------------------------------"+"\nPlane number: "+str(self.__number)+"\t\t"+"Airline: "+str(self.__airline)+"\n"+"Number of seats: "+str(self.__seats)+"\t"+"Destination: "+str(self.__destination)+"\n\t\t\t\t"+"List of passengers: \n"+str(self.__passengers_list)+"\n------------------------------------"+"-------------------------------------\n")
+
+repo = passengerRepository([MyPassenger("a","b","123"), MyPassenger("c","d","321")])
+test = MyPlane(1,"delta",89,"UK",repo)
+print(test.get_passenger_with_passport_number("123"))

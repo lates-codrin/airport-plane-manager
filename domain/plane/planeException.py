@@ -4,4 +4,4 @@ class PlaneException(Exception):
         
         
     def __str__(self):
-        return self.__message
+        return "D-PL"+self.__message

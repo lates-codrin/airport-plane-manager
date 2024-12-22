@@ -8,4 +8,4 @@ class PlaneRepositoryException(Exception):
         
         
     def __str__(self):
-        return self.__message
+        return "[PL-R]" + self.__message

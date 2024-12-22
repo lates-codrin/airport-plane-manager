@@ -4,4 +4,4 @@ class PassengerException(Exception):
         
         
     def __str__(self):
-        return self.__message
+        return "D-PA"+self.__message

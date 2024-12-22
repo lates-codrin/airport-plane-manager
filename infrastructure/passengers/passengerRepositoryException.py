@@ -1,6 +1,6 @@
 class PassengerRepositoryException(Exception):
     '''
-    Handles the errors appearing when working with class Vector Repository.
+    Handles the errors appearing when working with class Passenger Repository.
     '''
 
     def __init__(self, message):
@@ -8,4 +8,4 @@ class PassengerRepositoryException(Exception):
         
         
     def __str__(self):
-        return self.__message
+        return "[PA-R]" + self.__message

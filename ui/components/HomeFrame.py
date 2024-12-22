@@ -101,18 +101,21 @@ class HomeFrame(customtkinter.CTkFrame):
     def view_all_with_name_click_event(self):
         dialog = customtkinter.CTkInputDialog(text="Type in a name or part of a name:", title="APM - Airport Plane Manager")
         st =  dialog.get_input()
-        print(self.__controller.getPlanes((2,st)))
+        if st:
+            print(self.__controller.getPlanes((2,st)))
 
 
     def view_all_planes_with_name_click_event(self):
         dialog = customtkinter.CTkInputDialog(text="Type in a name:", title="APM - Airport Plane Manager")
         st =  dialog.get_input()
-        print(self.__controller.getPlanes((3,st)))
-        planes = self.__controller.getPlanes((3,st))
-        
-        self.plane_explorer = PlaneExplorer(self,planes = planes)
-        self.plane_explorer.after(10, self.plane_explorer.lift)
-        self.plane_explorer.after(20, self.plane_explorer.focus)
+
+        if st:
+            print(self.__controller.getPlanes((3,st)))
+            planes = self.__controller.getPlanes((3,st))
+            
+            self.plane_explorer = PlaneExplorer(self,planes = planes)
+            self.plane_explorer.after(10, self.plane_explorer.lift)
+            self.plane_explorer.after(20, self.plane_explorer.focus)
     
     
     def view_all_planes_with_passport_number(self):
@@ -133,7 +136,7 @@ class HomeFrame(customtkinter.CTkFrame):
     def view_all_planes(self):
         planes = self.__controller.getPlanes(("all", []))
         if len(planes) == 0 :
-            err = ErrorFrame(master=self, err="No planes inside repository")
+            err = ErrorFrame(master=self, err="No planes inside repository.")
             err.after(10, err.lift)
             err.after(20, err.focus)
             print("Error")

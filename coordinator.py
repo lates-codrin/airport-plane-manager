@@ -28,7 +28,7 @@ def start():
 
     #create ui
 
-    choice = input("You're currently using the CONSOLE configuration. \nWould you like to instead launch the USER INTERFACE - apm? [Y/N]: ")
+    '''choice = input("You're currently using the CONSOLE configuration. \nWould you like to instead launch the USER INTERFACE - apm? [Y/N]: ")
     if choice.lower() == "y":
         ui = UserInterfacePlaneLauncher(controller)
         ui.mainloop()
@@ -36,5 +36,7 @@ def start():
         ui = ConsolePlaneLauncher(controller)
         ui.mainMenu()
     else:
-        print("\n Not a valid option.")
+        print("\n Not a valid option.")'''
+    ui = UserInterfacePlaneLauncher(controller)
+    ui.mainloop()
 start()

@@ -1,7 +1,9 @@
 from domain.plane.plane import MyPlane
 from domain.plane.planeValidator import PlaneValidator
 from infrastructure.passengers.passengerRepository import passengerRepository
+from infrastructure.passengers.passengerRepository import PassengerRepositoryException
 from domain.passenger.passenger import MyPassenger
+from domain.passenger.passenger import PassengerException
 
 class PlaneController():
 
@@ -18,7 +20,10 @@ class PlaneController():
                 for passenger in plane['passengers']:
                     v = MyPassenger(passenger[0], passenger[1], passenger[2])
                     pass_list.append(v)
-                passengers = passengerRepository(pass_list)
+                try:
+                    passengers = passengerRepository(pass_list)
+                except PassengerException as err:
+                    print("ERR")
                 s = MyPlane(number, airline, seats, destination, passengers)
                 self.__validator.validate(s)
                 created_planes.append(s)
@@ -47,21 +52,20 @@ class PlaneController():
             raise Exception(f"[⚡] Error while deleting plane, try again!, here: {err}")
 
     def getPlanes(self, command:tuple) -> any:
-        print(len(command), command)
         try:
             choice = command[0]
             if choice == "all":
-                return self.__repo.get_all_planes()
+                return self.__repo.get_planes()
             elif choice == "index":
-                return self.__repo.get_plane_by_index(command[1])
+                return self.__repo.get_planes(index=command[1])
             elif choice == 1:
-                return self.__repo.get_planes_by_passport_number()
+                return self.__repo.get_planes(by_same_passport_prefix=True)
             elif choice ==2:
                 st = command[1]
                 return self.__repo.get_passengers_with_name(st)
             elif choice==3:
                 st= command[1]
-                return self.__repo.get_planes_by_passenger_name(st)
+                return self.__repo.get_planes(by_passenger_name = st)
             elif choice == "count":
                 return len(self.__repo)
         except Exception as err:
