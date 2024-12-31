@@ -13,10 +13,10 @@ from domain.passenger.passenger import MyPassenger
 from infrastructure.passengers.passengerRepository import passengerRepository
 from infrastructure.planes.planeRepository import planeRepository
 from domain.plane.planeValidator import PlaneValidator
-from ui.console2 import PlaneUI as ConsolePlaneLauncher
+from ui.consoleUI import PlaneUI as ConsolePlaneLauncher
 
 from application.planeController import PlaneController
-from ui.other import PlaneUI as UserInterfacePlaneLauncher
+from ui.planeUI import PlaneUI as UserInterfacePlaneLauncher
 def start():
     #crearte the repo
     repo = planeRepository()
