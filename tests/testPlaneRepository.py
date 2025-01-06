@@ -2,7 +2,6 @@ import unittest
 from domain.plane.plane import MyPlane
 from infrastructure.planes.planeRepository import planeRepository
 from domain.passenger.passenger import MyPassenger
-from infrastructure.planes.planeRepositoryException import PlaneRepositoryException
 from infrastructure.passengers.passengerRepository import passengerRepository
 
 class TestVectorRepository(unittest.TestCase):

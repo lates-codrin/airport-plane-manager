@@ -31,7 +31,6 @@ class SortWindow(customtkinter.CTkToplevel):
         self.after(10, self.lift)
 
     def show_confirm_frame(self, confirm_action, cancel_action):
-        # Create a confirmation frame
         self.confirm_frame = customtkinter.CTkFrame(self)
         self.confirm_frame.place(relx=0.5, rely=0.5, anchor="center")
 

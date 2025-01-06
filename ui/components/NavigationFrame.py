@@ -181,9 +181,8 @@ class NavigationFrame(customtkinter.CTkFrame):
         if self.log_window is None or not self.log_window.winfo_exists():
             self.log_window = LogWindow(master=self.master, controller=self.__controller, logs=labels)
         else:
-            # Update logs if the window already exists
             self.log_window.set_logs(labels)
         
-        # Show the window
+    
         self.log_window.show()
 

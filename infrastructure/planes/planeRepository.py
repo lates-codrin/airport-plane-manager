@@ -27,9 +27,9 @@ class planeRepository:
         - Get planes with a passenger matching a specific first or last name.
 
         Args:
-            index (int, optional): The index of the plane to retrieve. Defaults to None.
-            by_same_passport_prefix (bool, optional): Whether to search for planes with passengers sharing the same first 3 digits of their passport numbers. Defaults to False.
-            by_passenger_name (str, optional): The first or last name of the passenger to filter planes. Defaults to None.
+            index (int, optional): The index of the plane to retrieve.
+            by_same_passport_prefix (bool, optional): Whether to search for planes with passengers sharing the same first 3 digits of their passport numbers.
+            by_passenger_name (str, optional): The first or last name of the passenger to filter planes.
 
         Raises:
             PlaneRepositoryException: If the index is negative, out of bounds, or not an integer.
@@ -105,7 +105,7 @@ class planeRepository:
             self._planes.append(plane)
     
     
-    # -------------------- MISC --------------------
+    # --------------------      MISC     --------------------
 
     # -------------------- SORT FUNCTION --------------------
     def sort_planes(self, criteria=None, sub=None):
@@ -113,7 +113,7 @@ class planeRepository:
 
         Args:
             criteria (_type_, optional): Number of the criteria.
-            sub (_type_, optional): _description_. Sub-string for criteria 2.
+            sub (_type_, optional): Sub-string for criteria 2.
 
         Raises:
             PlaneRepositoryException: If criteria is invalid.
@@ -136,9 +136,6 @@ class planeRepository:
 
         Args:
             new_plane (_type_): New plane that will replace the old plane.
-
-        Returns:
-            _type_: Success message or failure message.
         """
         if len(new_plane) == 3:
             command = new_plane[0]
@@ -177,7 +174,7 @@ class planeRepository:
         """A function to delete plane based on criteria.
 
         Args:
-            criteria (_type_): Index or all; criteria for deletion.
+            criteria (_type_): Criteria for deletion.
         """
         if criteria[0] == "index":
             index = criteria[1]

@@ -104,11 +104,11 @@ class PlaneUI(object):
             with open("infrastructure/database/passenger_db.txt", "r") as file:
                 for line in file:
                     line = line.strip()
-                    if line.endswith(":"):  # Plane ID line
+                    if line.endswith(":"):
                         plane_id = int(line.strip(":"))
                         passenger_data[plane_id] = []
-                    elif line.startswith("("):  # Passenger data line
-                        passenger = eval(line)  # Safely parse the tuple
+                    elif line.startswith("("):
+                        passenger = eval(line)
                         passenger_data[plane_id].append(passenger)
             return passenger_data
         except IOError as err:
@@ -121,7 +121,7 @@ class PlaneUI(object):
     @staticmethod
     def readPlaneData(passenger_data):
         """
-        Reads plane data from the specified file and associates it with passenger data.
+        Reads plane data and associates it with passenger data.
         Returns a list of planes with their associated passengers.
         """
         planes = []
@@ -156,14 +156,12 @@ class PlaneUI(object):
             print("Operation cancelled.")
             return
         
-        # Read passenger data
         print("Reading passenger data...")
         passenger_data = PlaneUI.readPassengerData()
         if not passenger_data:
             print("Failed to read passenger data. Exiting.")
             return
 
-        # Read plane data
         print("Reading plane data...")
         planes = PlaneUI.readPlaneData(passenger_data)
         if planes:

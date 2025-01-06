@@ -11,9 +11,9 @@ class PlaneValidator:
         passengers_list = s.get_passengers_list()
 
         if not isinstance(number, int) or not isinstance(airline, str) or not isinstance(seats, int) or not isinstance(destination, str) or not isinstance(passengers_list, list):
-            raise PlaneException("One of the arguments provided not of correct type.")
+            err += "One of the arguments provided not of correct type."
         if len(passengers_list) > seats:
-            raise PlaneException("Too many passengers are aboard the plane.")
+            err += "Too many passengers are aboard the plane."
 
         if err != "":
             raise PlaneException(err)

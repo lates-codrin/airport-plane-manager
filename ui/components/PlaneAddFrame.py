@@ -9,7 +9,7 @@ class PlaneAddFrame(customtkinter.CTkFrame):
         #self.seventh_frame = customtkinter.CTkFrame(self, corner_radius=0, fg_color="#161617")
         self.columnconfigure(0, weight=1)
         self.rowconfigure(0, weight=1)
-        # Header Label
+        # header
         self.plane_count = 0
         self.__controller = controller
 
@@ -47,7 +47,6 @@ class PlaneAddFrame(customtkinter.CTkFrame):
             font=customtkinter.CTkFont(size=15, weight="bold")
         )
         self.navigation_frame_label1.place(anchor="center", relx=0.5, rely=0.25)
-        # Textbox and Button 
         self.textbox = customtkinter.CTkTextbox(master=self, width=400, corner_radius=0)
         self.textbox.grid(row=1, column=0, sticky="nsew", padx=20, pady=20)
         self.textbox.insert("0.0", """0:
@@ -72,7 +71,6 @@ class PlaneAddFrame(customtkinter.CTkFrame):
         )
         self.main_button_1.grid(row=2, column=0, padx=(10, 20), pady=(0, 10), sticky="ew")
 
-# Textbox and Button 
         self.textbox2 = customtkinter.CTkTextbox(master=self, width=400, corner_radius=0)
         self.textbox2.grid(row=1, column=1, sticky="nsew", padx=20, pady=20)
         self.textbox2.insert("0.0", """(0,"Delta Airlines", 84, "Australia")
